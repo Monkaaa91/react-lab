@@ -3,21 +3,26 @@ import {useState} from "react";
 
 function App() {
     const [email, setEmail] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const isDisabled = email.length < 10 || email.length > 30;
 
     function handleChange(event) {
         setEmail(event.target.value);
     }
-    function handleSave() {
-        console.log("Zapisuję e-mail:", email);
-        alert("Zapisano: " + email);
+    function handleLogin() {
+        setIsLoggedIn(true);
     }
-    const isDisabled = email.length < 10 || email.length > 30;
+    function handleLogout() {
+        setIsLoggedIn(false);
+        setEmail('');
+    }
 
     return (
         <div className="App">
-            <h1>System do zapisów na zajęcia</h1>
+            <h1>Witaj w systemie do zapisu na zajęcia</h1>
+            {!isLoggedIn && <div className="login-row">
+            <h2>Zaloguj się: </h2>
 
-            <h2>Twój e-mail to {email}</h2>
 
             <input className="email-input"
                 type="text"
@@ -25,19 +30,30 @@ function App() {
                 onChange={handleChange}/>
 
             <button className="save-button-email"
-                    onClick={handleSave}
+                    onClick={handleLogin}
                     disabled={isDisabled}>
                     Zapisz</button>
+            </div> }
+            {isLoggedIn && (
+                <div className="welcome-page">
+                    <h2>Witaj {email}!</h2>
 
+                <div>   <button onClick={handleLogout}>
+                        Wyloguj
+                    </button>
+                </div>
+                </div>
+            )}
             {email.length > 0 && email.length < 20 && (
                 <div className="error">Email jest za krótki.</div>)}
-            {email.length >=20 && email.length < 30 && (
-                <div className="correct">Email jest ok</div>)}
             {email.length >= 30 && (
                 <div className="error" >Email jest za długi.</div>)}
         </div>
+
+
     );
 }
+
 
 export default App;
 
