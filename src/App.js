@@ -3,6 +3,7 @@ import {useState} from "react";
 import "milligram";
 import LoginForm from "./LoginForm";
 import AfterLogin from "./AfterLogin";
+import MeetingsPage from "./meetings/MeetingsPage";
 
 function App() {
     const [email, setEmail] = useState('');
@@ -26,7 +27,9 @@ function App() {
             )}
 
             {isLoggedIn && (
-                <AfterLogin email={email} onLogout={handleLogout} />
+
+                <MeetingsPage onLogout={handleLogout} email={email} />
+
             )}
         </div>
     );
