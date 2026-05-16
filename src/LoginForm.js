@@ -1,7 +1,7 @@
 import { useState } from "react";
 export default function LoginForm(props) {
     const [email, setEmail] = useState('');
-    const tooShort = email.length > 0 && email.length < 10;
+    const tooShort = email.length >= 0 && email.length < 10;
     const tooLong = email.length > 30;
     const disabled = tooShort || tooLong;
     return  (

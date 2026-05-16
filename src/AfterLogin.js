@@ -1,4 +1,5 @@
 export default function AfterLogin(props) {
+
     return (
         <div>
             <h2>Witaj {props.email}!</h2>

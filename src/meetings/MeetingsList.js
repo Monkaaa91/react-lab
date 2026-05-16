@@ -5,6 +5,7 @@ export default function MeetingsList({meetings}) {
             <tr>
                 <th>Nazwa spotkania</th>
                 <th>Opis</th>
+                <th>Zapisz</th>
             </tr>
             </thead>
             <tbody>

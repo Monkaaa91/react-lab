@@ -23,6 +23,7 @@ export default function NewMeetingForm({onSubmit}) {
                       onChange={(e) => setDescription(e.target.value)}></textarea>
             <button disabled={disabled}>Dodaj</button>
 
+
             {title.trim() === '' && <div className="error">*nazwa jest wymagana.</div>}
             {description.trim() === '' && <div className="error">*opis jest wymagany.</div>}
         </form>

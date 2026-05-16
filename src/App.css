@@ -1,13 +1,19 @@
 .App {
   text-align: left;
+  position: fixed;
 }
-.App h2{
-  font-size: 16px;
+@media (min-width: 768px) {
+  .button-outline{
+    position: fixed;
+  }
 }
+
+
+
 
 .error{
   color: red;
-  font-size: 14px;
+  font-size: 10px;
   text-align: left;
   margin: 2px;
 
@@ -19,5 +25,8 @@
   margin: 2px;
 
 }
-
-
+.button-outline{
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
