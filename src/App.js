@@ -21,7 +21,8 @@ function App() {
 
             {email.length > 0 && email.length < 20 && (
                 <p className="error">Email jest za krótki.</p>)}
-
+            {email.length >=20 && email.length < 30 && (
+                <p className="correct">Email jest ok</p>)}
             {email.length >= 30 && (
                 <p className="error" >Email jest za długi.</p>)}
         </div>
