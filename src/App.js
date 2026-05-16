@@ -7,6 +7,11 @@ function App() {
     function handleChange(event) {
         setEmail(event.target.value);
     }
+    function handleSave() {
+        console.log("Zapisuję e-mail:", email);
+        alert("Zapisano: " + email);
+    }
+    const isDisabled = email.length < 10 || email.length > 30;
 
     return (
         <div className="App">
@@ -14,17 +19,22 @@ function App() {
 
             <h2>Twój e-mail to {email}</h2>
 
-            <input
+            <input className="email-input"
                 type="text"
                 value={email}
                 onChange={handleChange}/>
 
+            <button className="save-button-email"
+                    onClick={handleSave}
+                    disabled={isDisabled}>
+                    Zapisz</button>
+
             {email.length > 0 && email.length < 20 && (
-                <p className="error">Email jest za krótki.</p>)}
+                <div className="error">Email jest za krótki.</div>)}
             {email.length >=20 && email.length < 30 && (
-                <p className="correct">Email jest ok</p>)}
+                <div className="correct">Email jest ok</div>)}
             {email.length >= 30 && (
-                <p className="error" >Email jest za długi.</p>)}
+                <div className="error" >Email jest za długi.</div>)}
         </div>
     );
 }
